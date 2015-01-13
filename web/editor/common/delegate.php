@@ -17,6 +17,8 @@ limitations under the License.
 */
 
 define('DEBUG', false);
+define('LOGIN_BY_API', true);
+define('SHOW_HEADER', false);
 
 require_once dirname(__FILE__) . '/utils.php';
 
