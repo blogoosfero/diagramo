@@ -16,7 +16,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-if (!isset($_REQUEST['noHeader'])) {
+if (SHOW_HEADER) {
 
     $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
     ?>
