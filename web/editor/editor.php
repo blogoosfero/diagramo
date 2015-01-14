@@ -178,75 +178,99 @@ $page = 'editor';
         <div id="actions">
             
             
-
+            <?php if (in_array('save', TOOLBAR)) { ?>
             <a style="text-decoration: none;" href="#" onclick="return save();" title="Save diagram (Ctrl-S)"><img src="assets/images/icon_save.jpg" border="0" width="16" height="16"/></a>
-            
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
+            <?php } ?>
             
+            <?php if (in_array('open', TOOLBAR)) { ?>
             <a style="text-decoration: none;" href="./myDiagrams.php" title="Open diagram"><img src="assets/images/icon_open.jpg" border="0" width="16" height="16"/></a>
+            <?php } ?>
 
-            <?if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId']) ){//option available ony when the diagram was saved?>
+            <?if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId']) && in_array('print', TOOLBAR) ){//option available ony when the diagram was saved?>
                 <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
                 <a style="text-decoration: none;" href="#" onclick="return print_diagram();" title="Print diagram"><img src="assets/images/icon_print.png" border="0" width="16" height="16"/></a>
             <?}?>
 
+            <?php if (in_array('straight_connector', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <a href="javascript:action('connector-straight');"  title="Straight connector"><img src="assets/images/icon_connector_straight.gif" border="0"/></a>
+            <?php } ?>
 
+            <?php if (in_array('jagged_connector', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <a href="javascript:action('connector-jagged');" title="Jagged connector"><img src="assets/images/icon_connector_jagged.gif" border="0"/></a>
+            <?php } ?>
             
+            <?php if (in_array('organic_connector', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <a href="javascript:action('connector-organic');" title="Organic connector"><img src="assets/images/icon_connector_organic.gif" border="0" alt="Organic"/></a>
+            <?php } ?>
             
+            <?php if (in_array('container', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <a href="javascript:action('container');" title="Container (Experimental)"><img src="assets/images/container.png" border="0" alt="Container"/></a>
-            
+            <?php } ?>
+
+            <?php if (in_array('show_grid', TOOLBAR)) { ?>            
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>            
-                        
             <input type="checkbox" onclick="showGrid();" id="gridCheckbox"  title="Show grid" /> <span class="toolbarText">Show grid</span>
+            <?php } ?>
             
+            <?php if (in_array('snap_to_grid', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <input type="checkbox" onclick="snapToGrid();" id="snapCheckbox" title="Snap elements to grid" /> <span class="toolbarText">Snap to grid</span>
+            <?php } ?>
             
+            <?php if (in_array('move_to_front', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
 
             <a href="javascript:action('front');" title="Move to front"><img src="assets/images/icon_front.gif" border="0"/></a>
+            <?php } ?>
             
+            <?php if (in_array('move_to_back', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             
             <a href="javascript:action('back');" title="Move to back"><img src="assets/images/icon_back.gif" border="0"/></a>
+            <?php } ?>
             
+            <?php if (in_array('move_one_level_to_front', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             
             <a href="javascript:action('moveforward');" title="Move (one level) to front"><img src="assets/images/icon_forward.gif" border="0"/></a>
+            <?php } ?>
             
+            <?php if (in_array('move_one_level_to_back', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             
             <a href="javascript:action('moveback');" title="Move (one level) back"><img src="assets/images/icon_backward.gif" border="0"/></a>
-
+            <?php } ?>
             
-            
+            <?php if (in_array('group', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             <a href="javascript:action('group');" title="Group (Ctrl-G)"><img src="assets/images/group.gif" border="0"/></a>
+            <?php } ?>
             
+            <?php if (in_array('ungroup', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             <a href="javascript:action('ungroup');" title="Ungroup (Ctrl-U)"><img src="assets/images/ungroup.gif" border="0"/></a>
+            <?php } ?>
 
+            <?php if (in_array('add_text', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-            
             <a href="javascript:createFigure(figure_Text, 'assets/images/text.gif');"  title="Add text"><img  src="assets/images/text.gif" border="0" height ="16"/></a>
-            <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
+            <?php } ?>
             
-            <a href="javascript:showInsertImageDialog();"  title="Add image"><img src="/editor/assets/images/image.gif" border="0" height ="16" alt="Image"/></a>
+            <?php if (in_array('add_image', TOOLBAR)) { ?>
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-
+            <a href="javascript:showInsertImageDialog();"  title="Add image"><img src="/editor/assets/images/image.gif" border="0" height ="16" alt="Image"/></a>
+            <?php } ?>
+            
+            <?php if (in_array('undo', TOOLBAR)) { ?>
+            <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             <a href="javascript:action('undo');" title="Undo (Ctrl-Z)"><img src="assets/images/arrow_undo.png" border="0"/></a>
+            <?php } ?>
+            
             <!--
             <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
             <a href="javascript:action('redo');" title="Redo (Ctrl-Y)"><img src="assets/images/arrow_redo.png" border="0"/></a>
