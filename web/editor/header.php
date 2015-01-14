@@ -16,6 +16,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+if (SHOW_HEADER) {
+
 $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
 ?>
 <div id="header">    
@@ -122,3 +124,5 @@ $WEBADDRESS = $delegate->settingsGetByKeyNative('WEBADDRESS');
         
     </div>
 </div>
+
+<?php } ?>
