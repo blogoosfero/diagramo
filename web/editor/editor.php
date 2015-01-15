@@ -187,9 +187,15 @@ $page = 'editor';
             <a style="text-decoration: none;" href="./myDiagrams.php" title="Open diagram"><img src="assets/images/icon_open.jpg" border="0" width="16" height="16"/></a>
             <?php } ?>
 
-            <?if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId']) && in_array('print', $toolbar) ){//option available ony when the diagram was saved?>
-                <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
-                <a style="text-decoration: none;" href="#" onclick="return print_diagram();" title="Print diagram"><img src="assets/images/icon_print.png" border="0" width="16" height="16"/></a>
+            <?if(isset($_REQUEST['diagramId']) &&  is_numeric($_REQUEST['diagramId'])){//option available ony when the diagram was saved?>
+                <?php if (in_array('export', $toolbar)) { ?>
+                    <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
+                    <a style="text-decoration: none" href="./exportDiagram.php?diagramId=<?=$_REQUEST['diagramId']?>" title="Export diagram"><img src="assets/images/icon_export.jpg" border="0" width="16" height="16"/></a>
+                <?php } ?>
+                <?php if (in_array('print', $toolbar)) { ?>
+                    <img class="separator" src="assets/images/toolbar_separator.gif" border="0" width="1" height="16"/>
+                    <a style="text-decoration: none;" href="#" onclick="return print_diagram();" title="Print diagram"><img src="assets/images/icon_print.png" border="0" width="16" height="16"/></a>
+                <?php } ?>
             <?}?>
 
             <?php if (in_array('straight_connector', $toolbar)) { ?>
