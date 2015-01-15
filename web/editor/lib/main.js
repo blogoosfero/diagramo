@@ -3593,7 +3593,6 @@ function load(diagramId){
 
                 //alert("loaded");
             } catch(error) {
-                alert("main.js:load() Exception: " + error);
             }
         }
     );
