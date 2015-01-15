@@ -22,12 +22,12 @@ require_once dirname(__FILE__) . '/delegate.php';
 
 $delegate = new Delegate();
 
-if (!isset($_SESSION['userId']) && (isset($_COOKIE['biscuit']) || (LOGIN_BY_API && isset($_REQUEST['biscuit'])))) { { //if no user logged and we have a biscuit (cookie with credentials)
+if (!isset($_SESSION['userId']) && (isset($_COOKIE['biscuit']) || (LOGIN_BY_API && isset($_REQUEST['biscuit'])))) {  //if no user logged and we have a biscuit (cookie with credentials)
 
     //If we do not have an user logged we are gonna try to see if we have a biscuit (cookie with credentials) */
     // Decode the cookie data
     $biscuit = ($_REQUEST['biscuit']) ? $_REQUEST['biscuit'] : $_COOKIE['biscuit'];
-    $userCookie = (packer($biscuit, PACKER_UNPACK);
+    $userCookie = packer($biscuit, PACKER_UNPACK);
 
     // Validate data
     if (validateEmail($userCookie['email'], null) AND validateString($userCookie['password'], null, 1)) {
