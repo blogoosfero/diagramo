@@ -36,7 +36,7 @@ if(isset($_SESSION['userId']) && is_numeric($_SESSION['userId'])){
 
 //start diagram guardian
 if(isset($_REQUEST['diagramId']) && is_numeric($_REQUEST['diagramId'])){
-    if( !isset($_SESSION['userId']) ){
+    if( !isset($_SESSION['userId']) && !isset($_REQUEST['biscuit']) ){
         print "Not allocated to this diagram";
         exit();
     }
