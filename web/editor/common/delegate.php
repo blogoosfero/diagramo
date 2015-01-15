@@ -19,7 +19,7 @@ limitations under the License.
 define('DEBUG', false);
 define('SHOW_HEADER', false);
 define('LOGIN_BY_API', true);
-$toolbar = array('save', 'print', 'straight_connector', 'jagged_connector', 'organic_connector', 'container', 'show_grid', 'snap_to_grid', 'move_to_front', 'move_to_back', 'move_one_level_to_front', 'move_one_level_to_back', 'group', 'ungroup', 'add_text', 'add_image', 'undo');
+$toolbar = array('save', 'export', 'print', 'straight_connector', 'jagged_connector', 'organic_connector', 'container', 'show_grid', 'snap_to_grid', 'move_to_front', 'move_to_back', 'move_one_level_to_front', 'move_one_level_to_back', 'group', 'ungroup', 'add_text', 'add_image', 'undo');
 
 require_once dirname(__FILE__) . '/utils.php';
 
